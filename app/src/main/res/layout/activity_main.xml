@@ -120,7 +120,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/aantalKoffie"
+                android:id="@+id/numberOfCoffee"
                 android:hint="aantal"
                 android:inputType="textMultiLine" />
 
@@ -185,8 +185,9 @@
         <CalendarView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/calendarView"
-            android:layout_gravity="center_horizontal" />
+            android:id="@+id/calendarDate"
+            android:layout_gravity="center_horizontal"
+            android:showWeekNumber="true"/>
 
         <EditText
             android:layout_width="match_parent"
