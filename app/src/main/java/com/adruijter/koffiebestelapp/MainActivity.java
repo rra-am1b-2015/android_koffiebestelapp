@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -21,8 +22,13 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
-    String datumTest = "";
+
+    // Fields
+    String datumTest = "",
+           saveText = "";
     CalendarView cld;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,10 +63,6 @@ public class MainActivity extends AppCompatActivity {
         CheckBox chkbxMilk = (CheckBox) findViewById(R.id.milk);
         SeekBar skbar = (SeekBar) findViewById(R.id.coffeeStrength);
 
-
-
-
-
         String milkTxt = "";
         if ( chkbxMilk.isChecked())
         {
@@ -72,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
         }
         milkTxt += "melk";
 
-
         //Date datum = new Date(cld.getDate());
        // datumTest = new SimpleDateFormat("dd-MM-yyyy").format(datum);
 
@@ -80,8 +81,31 @@ public class MainActivity extends AppCompatActivity {
         String output = String.format("Voornaam: %s \n Tussenvoegsel: %s \n Achternaam: %s \n Aantal Koffie: %s \n Wel of geen melk: %s \n Sterktepercentage: %s procent \n datum: %s",
                 txtFirstname.getText(), txtInfix.getText(), txtLastname.getText(), txtNumberOfCoffee.getText(), milkTxt, skbar.getProgress(), datumTest);
 
-
+        this.saveText = output;
         txtTest.setText(output);
+        saveDataToInternal(view);
+    }
+
+    public void saveDataToInternal(View view)
+    {
+        // Hier komt de code om weg te schrijven naar file
+
+        FileOutputStream fos;
+
+        try
+        {
+            fos = openFileOutput("bestelappdata.txt", Context.MODE_PRIVATE);
+            fos.write(this.saveText.getBytes());
+            fos.close();
+        }
+        catch(FileNotFoundException e)
+        {
+            e.getMessage();
+        }
+        catch(IOException e)
+        {
+            e.getMessage();
+        }
     }
 
 
