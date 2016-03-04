@@ -43,41 +43,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        File file = getBaseContext().getFileStreamPath("myfile.txt");
-        String readString = "";
-        if (file.exists()) {
-
-            FileInputStream fis;
-
-            Toast.makeText(
-                    getBaseContext(),
-                    "Hij bestaat", Toast.LENGTH_LONG).show();
-
-            try {
-                fis = openFileInput("myfile.txt");
-
-                fis.read(readString.getBytes());
-                StringBuilder sb = new StringBuilder();
-                Reader r = new InputStreamReader(fis, "UTF-8");
-                int ch = r.read();
-                while ( ch >= 0)
-                {
-                    sb.append(ch);
-                    ch = r.read();
-                }
-
-                Toast.makeText(
-                        getBaseContext(),
-                        sb.toString(), Toast.LENGTH_LONG).show();
-                fis.close();
 
 
-            } catch (IOException e) {
-                e.printStackTrace();
-
-            }
-        }
-        Toast.makeText(getBaseContext(), readString  , Toast.LENGTH_LONG).show();
     }
 
     public void orderCoffee(View view)
@@ -103,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         {
             milkTxt += " geen ";
         }
-        milkTxt += "melk" + getFilesDir();
+        milkTxt += "melk";
 
 
         //Date datum = new Date(cld.getDate());
@@ -113,20 +80,7 @@ public class MainActivity extends AppCompatActivity {
         String output = String.format("Voornaam: %s \n Tussenvoegsel: %s \n Achternaam: %s \n Aantal Koffie: %s \n Wel of geen melk: %s \n Sterktepercentage: %s procent \n datum: %s",
                 txtFirstname.getText(), txtInfix.getText(), txtLastname.getText(), txtNumberOfCoffee.getText(), milkTxt, skbar.getProgress(), datumTest);
 
-        File file = this.getFilesDir();
-        File newFile = new File(file.getAbsolutePath() + "/arjan");
-        newFile.mkdir();
-        String filename = "myfile.txt";
-        String string = "Hello world!";
-        FileOutputStream outputStream;
 
-        try {
-            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
-            outputStream.write(output.getBytes());
-            outputStream.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         txtTest.setText(output);
     }
 
