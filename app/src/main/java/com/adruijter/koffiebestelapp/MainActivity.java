@@ -78,8 +78,12 @@ public class MainActivity extends AppCompatActivity {
         //Date datum = new Date(cld.getDate());
        // datumTest = new SimpleDateFormat("dd-MM-yyyy").format(datum);
 
-
+        /*
         String output = String.format("Voornaam: %s \n Tussenvoegsel: %s \n Achternaam: %s \n Aantal Koffie: %s \n Wel of geen melk: %s \n Sterktepercentage: %s procent \n datum: %s",
+                txtFirstname.getText(), txtInfix.getText(), txtLastname.getText(), txtNumberOfCoffee.getText(), milkTxt, skbar.getProgress(), datumTest);
+        */
+
+        String output = String.format("%s %s %s %s %s %s %s",
                 txtFirstname.getText(), txtInfix.getText(), txtLastname.getText(), txtNumberOfCoffee.getText(), milkTxt, skbar.getProgress(), datumTest);
 
         this.saveText = output;
