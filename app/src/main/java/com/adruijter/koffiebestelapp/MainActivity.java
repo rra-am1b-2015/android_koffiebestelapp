@@ -1,6 +1,7 @@
 package com.adruijter.koffiebestelapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -108,9 +109,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-
     public void getDatum(View view, int year, int month, int dayOfMonth){
         datumTest = dayOfMonth + "-" + month + "-" + year;
+    }
+
+    public void showOrder(View view)
+    {
+        Intent intent = new Intent(this, LoadActivity.class);
+        startActivity(intent);
     }
 }

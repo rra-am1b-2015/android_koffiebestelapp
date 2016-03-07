@@ -3,7 +3,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -198,12 +198,24 @@
             android:id="@+id/testText"
             android:layout_gravity="center_horizontal" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bestel Koffie"
-            android:id="@+id/btn_order"
-            android:onClick="orderCoffee"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bestel Koffie"
+                    android:id="@+id/btn_order"
+                    android:onClick="orderCoffee"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gedane bestellingen"
+                    android:id="@+id/showOrder"
+                    android:onClick="showOrder"/>
+        </LinearLayout>
 
 
     </LinearLayout>
