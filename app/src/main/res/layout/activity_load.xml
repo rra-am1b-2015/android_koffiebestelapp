@@ -22,7 +22,7 @@
             android:text="Hier komt de data"
             android:id="@+id/dataView"
             android:textAppearance="?android:textAppearanceLarge"
-            android:textSize="20sp"/>
+            android:textSize="12sp"/>
 
         <View
             android:layout_width="match_parent"

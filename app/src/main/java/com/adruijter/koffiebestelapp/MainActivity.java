@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         String output = String.format("%s %s %s %s %s %s %s",
                 txtFirstname.getText(), txtInfix.getText(), txtLastname.getText(), txtNumberOfCoffee.getText(), milkTxt, skbar.getProgress(), datumTest);
 
-        this.saveText = output;
+        this.saveText = output + System.lineSeparator();
         txtTest.setText(output);
         saveDataToInternal(view);
     }
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
         try
         {
-            fos = openFileOutput("bestelappdata.txt", Context.MODE_PRIVATE);
+            fos = openFileOutput("bestelappdata.txt", Context.MODE_PRIVATE | MODE_APPEND);
             fos.write(this.saveText.getBytes());
             fos.close();
         }
