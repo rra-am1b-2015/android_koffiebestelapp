@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.CalendarView;
 import android.widget.CheckBox;
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSelectedDayChange(CalendarView view, int year,
                                             int month, int dayOfMonth) {
                 datumTest = dayOfMonth + "-" + (month + 1) + "-" + year;
-                orderCoffee(view);
+                //orderCoffee(view);
                 // TODO Auto-generated method stub
                 Toast.makeText(
                         getBaseContext(),
@@ -86,9 +87,26 @@ public class MainActivity extends AppCompatActivity {
         String output = String.format("%s %s %s %s %s %s %s",
                 txtFirstname.getText(), txtInfix.getText(), txtLastname.getText(), txtNumberOfCoffee.getText(), milkTxt, skbar.getProgress(), datumTest);
 
-        this.saveText = output + System.lineSeparator();
+        this.saveText = output + System.getProperty("line.separator");
         txtTest.setText(output);
-        saveDataToInternal(view);
+
+        if (TextUtils.isEmpty(txtFirstname.getText().toString()))
+        {
+            txtFirstname.setError("U moet een voornaam invullen");
+        }
+        else if (TextUtils.isEmpty(txtLastname.getText().toString()))
+        {
+            txtLastname.setError("U moet een achternaam invullen");
+        }
+        else if (TextUtils.isEmpty(txtNumberOfCoffee.getText().toString()))
+        {
+            txtNumberOfCoffee.setError("U moet het aantal koffie invullen");
+        }
+        else
+        {
+            saveDataToInternal(view);
+        }
+
     }
 
     public void saveDataToInternal(View view)
