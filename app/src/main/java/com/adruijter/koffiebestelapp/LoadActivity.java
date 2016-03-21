@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +23,8 @@ public class LoadActivity extends Activity {
 
     //Fields
     TextView dataTxt;
+    private static final int NUM_ROWS = 4;
+    private static final int NUM_COLS = 9;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,30 +42,58 @@ public class LoadActivity extends Activity {
     public void showOrders(View view)
     {
 
-        Toast.makeText(getBaseContext(), "Er is op de bestelling knop gedrukt", Toast.LENGTH_LONG).show();
+
+        Toast.makeText(this, "Er is op de bestelling knop gedrukt", Toast.LENGTH_LONG).show();
 
         FileInputStream fis;
 
         try {
-            //ArrayList<String> test = new ArrayList<String>();
+
             String[] test, words;
+
             fis = openFileInput("bestelappdata.txt");
             int read = -1;
             StringBuffer buffer = new StringBuffer();
             while ((read = fis.read()) != -1) {
                 buffer.append((char) read);
-                //Toast.makeText(getBaseContext(), buffer.substring(0, buffer.length()) + buffer.lastIndexOf("#"), Toast.LENGTH_SHORT).show();
-                //Log.d("een", Integer.toString(buffer.lastIndexOf("#")));
             }
             String output = buffer.substring(0, buffer.length());
 
             test = output.split(System.getProperty("line.separator"));
 
-            //test.add(Arrays.toString(output.split(" ")));
             Log.v("test123", output);
-            //Log.v("test456", test.get(0));
-            //Toast.makeText(getBaseContext(), output, Toast.LENGTH_LONG).show();
+
             this.dataTxt.setText(output);
+
+            TableLayout table = (TableLayout)findViewById(R.id.tableInternalMemory);
+
+            for ( int row = 0; row < test.length; row++)
+            {
+                words = test[row].split(" ");
+                TableRow tableRow = new TableRow(this);
+                tableRow.setLayoutParams(new TableLayout.LayoutParams(
+                        TableLayout.LayoutParams.MATCH_PARENT,
+                        TableLayout.LayoutParams.MATCH_PARENT,
+                        1.0f
+                ));
+                table.addView(tableRow);
+
+                for ( int col = 0; col < NUM_COLS; col++ )
+                {
+                    Button button = new Button(this);
+                    String arjan = "" + col + ", " + row + words[col];
+                    button.setText(arjan);
+                    button.setTextSize(9);
+                    button.setPadding(0, 0, 0, 0);
+                    button.setLayoutParams(new TableRow.LayoutParams(
+                            TableRow.LayoutParams.MATCH_PARENT,
+                            TableRow.LayoutParams.MATCH_PARENT,
+                            1.0f
+                    ));
+                    tableRow.addView(button);
+                }
+            }
+
 
             for (int i = 0; i < test.length; i++) {
                 words = test[i].split(" ");
@@ -71,7 +104,13 @@ public class LoadActivity extends Activity {
                 Log.v("test789", test[i] + Integer.toString(i));
             }
 
+            //test.add(Arrays.toString(output.split(" ")));
             //Log.v("Hoi", test[5] + "i");
+            //Log.v("test456", test.get(0));
+            //Toast.makeText(getBaseContext(), output, Toast.LENGTH_LONG).show();
+            //ArrayList<String> test = new ArrayList<String>();
+            //Toast.makeText(getBaseContext(), buffer.substring(0, buffer.length()) + buffer.lastIndexOf("#"), Toast.LENGTH_SHORT).show();
+            //Log.d("een", Integer.toString(buffer.lastIndexOf("#")));
         }
         catch (FileNotFoundException e)
         {
