@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 txtFirstname.getText(), txtInfix.getText(), txtLastname.getText(), txtNumberOfCoffee.getText(), milkTxt, skbar.getProgress(), datumTest);
         */
 
-        String output = String.format("%s %s %s %s %s %s %s",
+        String output = String.format("%s %s %s %s %s %s %s ",
                 txtFirstname.getText(), txtInfix.getText(), txtLastname.getText(), txtNumberOfCoffee.getText(), milkTxt, skbar.getProgress(), datumTest);
 
         this.saveText = output + System.getProperty("line.separator");
