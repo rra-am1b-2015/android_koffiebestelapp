@@ -2,6 +2,7 @@ package com.adruijter.koffiebestelapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -80,18 +81,31 @@ public class LoadActivity extends Activity {
 
                 for ( int col = 0; col < NUM_COLS; col++ )
                 {
-                    Button button = new Button(this);
-                    String arjan = "" + col + ", " + row + words[col];
-                    button.setText(arjan);
-                    button.setTextSize(9);
-                    button.setPadding(0, 0, 0, 0);
-                    button.setLayoutParams(new TableRow.LayoutParams(
-                            TableRow.LayoutParams.MATCH_PARENT,
-                            TableRow.LayoutParams.MATCH_PARENT,
+                    TextView tblData = new TextView(this);
+                    String arjan = words[col];
+                    tblData.setText(arjan);
+                    tblData.setTextSize(11);
+                    tblData.setBackgroundColor(Color.rgb(200, 200,200));
+                    tblData.setPadding(2, 20, 0, 20);
+                    tblData.setLayoutParams(new TableRow.LayoutParams(
+                            TableRow.LayoutParams.WRAP_CONTENT,
+                            TableRow.LayoutParams.WRAP_CONTENT,
                             1.0f
                     ));
-                    tableRow.addView(button);
+                    tableRow.addView(tblData);
                 }
+                Button button = new Button(this);
+                button.setPadding(0, 0, 0, 0);
+                button.setHeight(20);
+                button.setWidth(20);
+                button.setText("Druk!");
+                button.setLayoutParams(new TableRow.LayoutParams(
+                        TableRow.LayoutParams.WRAP_CONTENT,
+                        TableRow.LayoutParams.WRAP_CONTENT,
+                        1.0f
+                ));
+                tableRow.addView(button);
+
             }
 
 
