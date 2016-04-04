@@ -31,7 +31,8 @@ public class LoadActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load);
-        this.dataTxt = (TextView)findViewById(R.id.dataView);
+        showOrders();
+       // this.dataTxt = (TextView)findViewById(R.id.dataView);
     }
 
     public void placeOrder(View view)
@@ -40,7 +41,7 @@ public class LoadActivity extends Activity {
         startActivity(intent);
     }
 
-    public void showOrders(View view)
+    public void showOrders()
     {
 
 
@@ -64,9 +65,10 @@ public class LoadActivity extends Activity {
 
             Log.v("test123", output);
 
-            this.dataTxt.setText(output);
+            //this.dataTxt.setText(output);
 
             TableLayout table = (TableLayout)findViewById(R.id.tableInternalMemory);
+
 
             for ( int row = 0; row < test.length; row++)
             {

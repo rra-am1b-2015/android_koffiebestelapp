@@ -190,6 +190,7 @@
             android:layout_gravity="center_horizontal"
             android:showWeekNumber="true"/>
 
+        <!--
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -198,6 +199,7 @@
             android:text="Dit is een teststring om data binnen te halen"
             android:id="@+id/testText"
             android:layout_gravity="center_horizontal" />
+        -->
 
         <LinearLayout
             android:orientation="horizontal"

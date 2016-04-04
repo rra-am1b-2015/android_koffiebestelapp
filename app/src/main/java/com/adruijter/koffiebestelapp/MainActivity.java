@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         EditText txtInfix = (EditText) findViewById(R.id.infix);
         EditText txtLastname = (EditText) findViewById(R.id.lastname);
         EditText txtNumberOfCoffee = (EditText) findViewById(R.id.numberOfCoffee);
-        EditText txtTest = (EditText) findViewById(R.id.testText);
+        //EditText txtTest = (EditText) findViewById(R.id.testText);
         CheckBox chkbxMilk = (CheckBox) findViewById(R.id.milk);
         SeekBar skbar = (SeekBar) findViewById(R.id.coffeeStrength);
 
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 txtFirstname.getText(), txtInfix.getText(), txtLastname.getText(), txtNumberOfCoffee.getText(), milkTxt, skbar.getProgress(), datumTest);
 
         this.saveText = output + System.getProperty("line.separator");
-        txtTest.setText(output);
+        //txtTest.setText(output);
 
         if (TextUtils.isEmpty(txtFirstname.getText().toString()))
         {
