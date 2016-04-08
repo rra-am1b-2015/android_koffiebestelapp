@@ -26,6 +26,7 @@ public class LoadActivity extends Activity {
     TextView dataTxt;
     private static final int NUM_ROWS = 4;
     private static final int NUM_COLS = 9;
+    private String[] words;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,7 @@ public class LoadActivity extends Activity {
 
         try {
 
-            String[] test, words;
+            String[] test;
 
             fis = openFileInput("bestelappdata.txt");
             int read = -1;
@@ -100,12 +101,22 @@ public class LoadActivity extends Activity {
                 button.setPadding(0, 0, 0, 0);
                 button.setHeight(20);
                 button.setWidth(20);
-                button.setText("Druk!");
+                button.setText("Druk");
                 button.setLayoutParams(new TableRow.LayoutParams(
                         TableRow.LayoutParams.WRAP_CONTENT,
                         TableRow.LayoutParams.WRAP_CONTENT,
                         1.0f
                 ));
+
+                View.OnClickListener btnClickListener = new View.OnClickListener()
+                {
+                    public void onClick(View v)
+                    {
+                        Toast.makeText(getApplicationContext(), "Er is op de knop gedrukt", Toast.LENGTH_LONG).show();
+                        showDetail(v);
+                    }
+                };
+                button.setOnClickListener(btnClickListener);
                 tableRow.addView(button);
 
             }
@@ -139,5 +150,12 @@ public class LoadActivity extends Activity {
 
 
 
+    }
+
+    public void showDetail(View view)
+    {
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra("voornaam",words[1]);
+        startActivity(intent);
     }
 }
