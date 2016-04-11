@@ -155,7 +155,8 @@ public class LoadActivity extends Activity {
     public void showDetail(View view)
     {
         Intent intent = new Intent(this, DetailActivity.class);
-        intent.putExtra("voornaam",words[1]);
+        intent.putExtra("voornaam",words[0]);
+        intent.putExtra("tussenvoegsel", words[1]);
         startActivity(intent);
     }
 }
