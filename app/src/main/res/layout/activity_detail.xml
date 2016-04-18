@@ -27,7 +27,7 @@
 
     <TextView
         android:id="@+id/firstnameLabel"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:text="voornaam: "
         android:textAppearance="?android:textAppearanceLarge"
@@ -52,7 +52,7 @@
 
         <TextView
             android:id="@+id/infixLabel"
-            android:layout_width="wrap_content"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:text="tussenvoegsel"
             android:textAppearance="?android:textAppearanceLarge"
@@ -63,6 +63,52 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/infixValue"
+            android:hint=""
+            android:inputType="textMultiLine" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/lastnameLabel"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="Achternaam"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:background="@color/licht_oranje"
+            android:textSize="24dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lastnameValue"
+            android:hint=""
+            android:inputType="textMultiLine" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/numberOfCoffeeLabel"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="Aantal Koffie"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:background="@color/licht_oranje"
+            android:textSize="24dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/numberOfCoffeeValue"
             android:hint=""
             android:inputType="textMultiLine" />
 

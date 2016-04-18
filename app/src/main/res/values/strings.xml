@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">KoffieBestelApp</string>
-    <color name="oranje">#ddd</color>
-    <color name="licht_oranje">#ccc</color>
+    <color name="oranje">#F90</color>
+    <color name="licht_oranje">#DDD</color>
 </resources>

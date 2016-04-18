@@ -130,14 +130,6 @@ public class LoadActivity extends Activity {
                 }
                 Log.v("test789", test[i] + Integer.toString(i));
             }
-
-            //test.add(Arrays.toString(output.split(" ")));
-            //Log.v("Hoi", test[5] + "i");
-            //Log.v("test456", test.get(0));
-            //Toast.makeText(getBaseContext(), output, Toast.LENGTH_LONG).show();
-            //ArrayList<String> test = new ArrayList<String>();
-            //Toast.makeText(getBaseContext(), buffer.substring(0, buffer.length()) + buffer.lastIndexOf("#"), Toast.LENGTH_SHORT).show();
-            //Log.d("een", Integer.toString(buffer.lastIndexOf("#")));
         }
         catch (FileNotFoundException e)
         {
@@ -157,6 +149,9 @@ public class LoadActivity extends Activity {
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra("voornaam",words[0]);
         intent.putExtra("tussenvoegsel", words[1]);
+        intent.putExtra("achternaam", words[2]);
+        intent.putExtra("aantalKoffie", words[3]);
+        intent.putExtra("melk", words[4]);
         startActivity(intent);
     }
 }
